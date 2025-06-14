@@ -1,3 +1,8 @@
+package com.yandex.app;  // расположил все по отдельным пакетам
+
+import com.yandex.app.model.*;
+import com.yandex.app.service.TaskManager;
+
 public class Main {
     public static void main(String[] args) {
         TaskManager manager = new TaskManager();

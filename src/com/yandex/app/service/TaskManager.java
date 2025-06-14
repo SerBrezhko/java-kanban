@@ -1,3 +1,7 @@
+package com.yandex.app.service;
+
+import com.yandex.app.model.*;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 
@@ -82,10 +86,9 @@ public class TaskManager {
 
     // Обновление. Новая версия объекта с верным идентификатором передаётся в виде параметра.
     public void updateTask(Task task) {
-        if (tasks.containsKey(task.getId())) {
-            tasks.put(task.getId(), task);
-        }
+        tasks.computeIfPresent(task.getId(), (id, oldTask) -> task);  // изменил на computeIfPresent
     }
+
 
     public void updateEpic(Epic epic) {
         if (epics.containsKey(epic.getId())) {

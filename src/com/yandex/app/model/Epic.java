@@ -1,3 +1,5 @@
+package com.yandex.app.model;
+
 import java.util.ArrayList;
 
 public class Epic extends Task {
@@ -15,8 +17,8 @@ public class Epic extends Task {
         subtaskIds.add(subtaskId);
     }
 
-    public void removeSubtask(int subtaskId) {
-        subtaskIds.remove((Integer) subtaskId);
+    public void removeSubtask(int subtaskId) {  // изменил на Integer.valueOf
+        subtaskIds.remove(Integer.valueOf(subtaskId));
     }
 
     public void clearSubtasks() {
