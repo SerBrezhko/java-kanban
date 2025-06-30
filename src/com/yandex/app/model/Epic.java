@@ -13,11 +13,15 @@ public class Epic extends Task {
         return subtaskIds;
     }
 
+    // Запрещаем добавить самого себя как подзадачу
     public void addSubtask(int subtaskId) {
+        if (subtaskId == this.getId()) {
+            throw new IllegalArgumentException("Epic не может содержать самого себя в списке подзадач");
+        }
         subtaskIds.add(subtaskId);
     }
 
-    public void removeSubtask(int subtaskId) {  // изменил на Integer.valueOf
+    public void removeSubtask(int subtaskId) {
         subtaskIds.remove(Integer.valueOf(subtaskId));
     }
 

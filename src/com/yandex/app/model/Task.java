@@ -1,7 +1,5 @@
 package com.yandex.app.model;
 
-import java.util.Objects;
-
 public class Task {
     protected String name;
     protected String description;
@@ -14,26 +12,12 @@ public class Task {
         this.status = status;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-            Task task = (Task) o;
-        return id == task.id && Objects.equals(name, task.name) && Objects.equals(description, task.description) && status == task.status;
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, description, id, status);
-    }
-
-    @Override
-    public String toString() {
-        return "Task{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", id=" + id +
-                ", status=" + status +
-                '}';
+    public String getDescription() {
+        return description;
     }
 
     public int getId() {
@@ -51,5 +35,37 @@ public class Task {
     public void setStatus(Status status) {
         this.status = status;
     }
-}
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true; // ссылка на тот же объект
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        // Считаем задачи равными только если id совпадает и он не равен 0
+        return id != 0 && id == task.id;
+    }
+
+    @Override
+    public int hashCode() {
+        // Используем только id в хэшкоде
+        return Integer.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", id=" + id +
+                ", status=" + status +
+                '}';
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}
