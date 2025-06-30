@@ -1,7 +1,8 @@
-package com.yandex.app.service;
+package com.yandex.app.test;
 
 import com.yandex.app.model.Status;
 import com.yandex.app.model.Task;
+import com.yandex.app.service.InMemoryHistoryManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -49,7 +50,8 @@ class InMemoryHistoryManagerTest {
             historyManager.add(t);
         }
         List<Task> history = historyManager.getHistory();
-        assertTrue(history.size() <= 10);
+        assertTrue(history.size() <= InMemoryHistoryManager.MAX_HISTORY_SIZE);
+        // константу 10 взял из InMemoryHistoryManager, сделав её публичной.
     }
 
 

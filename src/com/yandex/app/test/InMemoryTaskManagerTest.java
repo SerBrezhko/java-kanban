@@ -1,6 +1,7 @@
-package com.yandex.app.service;
+package com.yandex.app.test;
 
 import com.yandex.app.model.*;
+import com.yandex.app.service.InMemoryTaskManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

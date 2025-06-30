@@ -1,5 +1,6 @@
-package com.yandex.app.model;
+package com.yandex.app.test;
 
+import com.yandex.app.model.Epic;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
